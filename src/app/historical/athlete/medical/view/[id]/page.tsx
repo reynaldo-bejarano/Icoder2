@@ -7,7 +7,7 @@ import axios from 'axios';
 import converterIsoStringToDate from '@/hooks/converterIsoStringToDate';
 import { tr } from 'date-fns/locale';
 
-const ViewMedical = () => {
+const HistoricalMedical = () => {
 
     const navigation = useRouter();
     const athleteID = useParams()
@@ -17,7 +17,8 @@ const ViewMedical = () => {
 
         async function getData() {
             try {
-                const res = await axios.get(`/api/auth/medical/view/${athleteID.id}`)
+                const res = await axios.get(`/api/auth/medical/historical/athlete/view/${athleteID.id}`)
+                console.log(res.data.medicalDataByID)
                 setMedical(res.data.medicalDataByID)
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -35,27 +36,12 @@ const ViewMedical = () => {
                 <div className=' bg-slate-800 py-2 px-4 mb-4 col-span-4 flex gap-4 items-center justify-between '>
                     <button
                         type='button'
-                        onClick={() => navigation.push(`/athletes/view/${athleteID.id}`)}
+                        onClick={() => navigation.push(`/medical/athlete/view/${athleteID.id}`)}
                         className=" flex items-center gap-1 bg-slate-200 py-1 text-sm px-2 text-slate-90 rounded-md md:col-span-1 text-center "
                     >
                         Volver
                     </button>
-                    <div className='flex gap-2'>
-                        <button
-                            className='bg-slate-200 px-4 py-1 text-sm rounded-md  text-slate-900 flex items-center gap-2'
-                            onClick={e => { navigation.push(`/historical/athlete/medical/view/${athleteID.id}`) }}
-                        >
-                            <FaPlus className='text-sm' />
-                            Historial
-                        </button>
-                        <button
-                            className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
-                            onClick={e => { navigation.push(`/medical/athlete/create/${athleteID.id}`) }}
-                        >
-                            <FaPlus className='text-sm' />
-                            Crear informe médico
-                        </button>
-                    </div>
+                  
 
                 </div>
                 {/* header */}
@@ -135,4 +121,4 @@ const ViewMedical = () => {
     )
 }
 
-export default ViewMedical
+export default HistoricalMedical

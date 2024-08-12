@@ -9,7 +9,7 @@ export async function GET(request: Request, { params }: any) {
         const IDtoNumber = parseInt(params.id)
         const medicalDataByID = await Medical.find({
             'athlete.identification': IDtoNumber,
-            active: true
+            active: false
         });
 
         // If no document is found, return a 404 response

@@ -18,6 +18,10 @@ const medicalSchema = new Schema({
             type: String,
             required: true,
         },
+        genre: {
+            type: String,
+            required: true,
+        },
         birth: {
             type: Date,
             required: true,

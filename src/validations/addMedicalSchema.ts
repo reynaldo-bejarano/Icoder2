@@ -20,6 +20,7 @@ export const addMedicalSchema = z.object({
     anotacion: z
         .string({ required_error: "* Requerido" }),
     recomendacion: z
-        .string({ required_error: "* Requerido" })
+        .string({ required_error: "* Requerido" }),
+
 
 });

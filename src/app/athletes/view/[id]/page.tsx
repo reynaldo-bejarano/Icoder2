@@ -18,6 +18,7 @@ const ViewAthlete = () => {
   const [modalityDataByID, setModalityDataByID] = useState<any>();
   const [cantonDataByID, setCantonDataByID] = useState<any>();
   const [distritoDataByID, setDistritoDataByID] = useState<any>();
+  const [totalLesiones, setTotalLesiones] = useState<any>(0);
 
   const navigation = useRouter();
   const searchParams = useParams()
@@ -28,6 +29,9 @@ const ViewAthlete = () => {
         const res = await axios.get(`/api/auth/athletes/view/${searchParams.id}`)
         setAthlete(res.data.athleteData[0])
         setMorphological(res.data.morphologicalData[0])
+        const response = await axios.get(`/api/auth/medical/document/count/${searchParams.id}`)
+        setTotalLesiones(response.data.totalItems)
+        
       } catch (error) {
         if (error instanceof AxiosError) console.error('Error fetching data:', error);
       }
@@ -116,12 +120,13 @@ const ViewAthlete = () => {
                 </span>
               </button>
               <button
-              onClick={() => navigation.push(`/medical/athlete/view/${athlete?.identification}`)}
+                onClick={() => navigation.push(`/medical/athlete/view/${athlete?.identification}`)}
                 className=" flex items-center gap-1 bg-blue-500 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
               >
                 <RiEditBoxFill className='text-slate-100 text-md' />
-                <span className='text-md'>
+                <span className='text-md flex gap-2'>
                   Médico
+                  <span className={totalLesiones > 0 ?'bg-red-600 rounded-full h-5 w-5' : "hidden"}>{totalLesiones}</span>
                 </span>
               </button>
               <button
@@ -133,13 +138,13 @@ const ViewAthlete = () => {
                 </span>
               </button>
               <button
-                  className=" flex items-center gap-1 bg-red-600 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
-                >
-                  Desactivar
-                </button>
+                className=" flex items-center gap-1 bg-red-600 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
+              >
+                Desactivar
+              </button>
             </div>
-            
-         
+
+
           </div>
           {/* header */}
 
