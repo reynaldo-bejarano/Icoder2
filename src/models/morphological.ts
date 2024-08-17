@@ -4,7 +4,6 @@ const morphologicalSchema = new Schema({
     athlete_id: {
         type: Number,
         required: true,
-        unique: true,
       },
       basic: {
         height: {
@@ -74,6 +73,10 @@ const morphologicalSchema = new Schema({
           required: true,
         },
       },
+      active:{
+        type: Boolean,
+          required: true,
+      }
    
 }, {
     timestamps: true,

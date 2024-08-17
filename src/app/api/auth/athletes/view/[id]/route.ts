@@ -12,7 +12,8 @@ export async function GET(request: Request, { params }: any) {
         identification: IDtoNumber
     });
     const morphologicalData = await Morphological.find({
-        athlete_id: IDtoNumber
+        athlete_id: IDtoNumber, 
+        active: true
     });
     return NextResponse.json({
         athleteData,

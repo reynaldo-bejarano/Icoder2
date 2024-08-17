@@ -112,6 +112,7 @@ const ViewAthlete = () => {
                 </span>
               </button>
               <button
+              onClick={() => navigation.push(`/nutrition/athlete/create/${athlete?.identification}`)}
                 className=" flex items-center gap-1 bg-cyan-600 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
               >
                 <RiEditBoxFill className='text-slate-100 text-md' />
@@ -127,6 +128,16 @@ const ViewAthlete = () => {
                 <span className='text-md flex gap-2'>
                   Médico
                   <span className={totalLesiones > 0 ?'bg-red-600 rounded-full h-5 w-5' : "hidden"}>{totalLesiones}</span>
+                </span>
+              </button>
+              <button
+                onClick={() => navigation.push(`/morphological/view/${athlete?.identification}`)}
+                className=" flex items-center gap-1 bg-pink-500 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
+              >
+                <RiEditBoxFill className='text-slate-100 text-md' />
+                <span className='text-md flex gap-2'>
+                  Morfología
+                  
                 </span>
               </button>
               <button

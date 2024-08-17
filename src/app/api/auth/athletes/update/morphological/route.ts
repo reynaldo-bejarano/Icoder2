@@ -2,22 +2,23 @@ import { connectDB } from "@/libs/mongodb";
 import { NextResponse } from "next/server";
 import Morphological from "@/models/morphological";
 
-export async function POST(request: Request) {
+export async function PATCH(request: Request) {
 
-    const { athlete_id, basic, percentage, circumference, arms, legs, gastrocnemius, active } = await request.json();
+    const { basic, percentage, circumference, arms, legs, gastrocnemius, active, _id } = await request.json();
 
+    console.log(11111)
     try {
         await connectDB();
-        const morphologicalFound = await Morphological.findOne({ athlete_id })
-
-        if (morphologicalFound) return NextResponse.json({
-            message: "Ese usuario ya existen en la base de datos"
-        }, {
-            status: 400,
-        });
-
+        const morphologicalFound = await Morphological.findById(_id)
+        
+        const morphologicalUpdate = await Morphological.findByIdAndUpdate(
+            _id,
+            { active: false }, // Actualiza el campo que necesitas
+            { new: true } // Devuelve el documento actualizado
+        )
+       
         const morphological = new Morphological({
-            athlete_id,
+            athlete_id: morphologicalFound.athlete_id,
             basic,
             percentage,
             circumference,
@@ -28,7 +29,6 @@ export async function POST(request: Request) {
         })
 
         const saveMorphological = await morphological.save();
-        console.log(saveMorphological);
 
         return NextResponse.json(saveMorphological);
 
