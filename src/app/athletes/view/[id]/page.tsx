@@ -8,6 +8,7 @@ import { BsCalendarDateFill } from "react-icons/bs";
 import { CiCalendarDate } from "react-icons/ci";
 import DateTable from '@/app/components/dates/table/athlete/page';
 import RutineTable from '@/app/components/rutines/table/page';
+import TableNutrition from '@/app/components/nutrition/table/page';
 
 
 
@@ -77,7 +78,7 @@ const ViewAthlete = () => {
   return (
 
 
-    <div className='w-full h-screen'>
+    <div className='w-full  bg-slate-100 '>
 
       <div className="container w-full mx-auto py-4 text-slate-900">
         <div
@@ -112,7 +113,7 @@ const ViewAthlete = () => {
                 </span>
               </button>
               <button
-              onClick={() => navigation.push(`/nutrition/athlete/create/${athlete?.identification}`)}
+              onClick={() => navigation.push(`/nutrition/athlete/view/${athlete?.identification}`)}
                 className=" flex items-center gap-1 bg-cyan-600 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
               >
                 <RiEditBoxFill className='text-slate-100 text-md' />
@@ -471,6 +472,7 @@ const ViewAthlete = () => {
 
         <DateTable />
         <RutineTable />
+        <TableNutrition />
 
       </div>
 
