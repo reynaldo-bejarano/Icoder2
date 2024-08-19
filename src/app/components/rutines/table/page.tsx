@@ -33,7 +33,7 @@ const RutineTable = () => {
                 {/* Dia */}
 
                 <div className=' text-slate-100 p-2 grid grid-cols-6'>
-                    <div className='bg-slate-900 text-slate-100 text-center col-span-6'>
+                    <div className='bg-slate-900 text-slate-100 text-center text-md col-span-6'>
                         Rutina de ejercicios
                     </div>
                     {gruposMusculares.map<any>((g: any) => {

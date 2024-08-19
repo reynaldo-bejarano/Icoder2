@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation'
 import NavbarLink from "./navbarLink";
 import { Toaster } from "react-hot-toast";
 import Nlink from "./Nlink";
+import { IoMdExit } from "react-icons/io";
+
 
 
 
@@ -27,7 +29,12 @@ const Navbar = ({ children }: any) => {
                         />
                         <div className="flex justify-evenly items-center gap-4 mt-5 md:mt-0">
                             {session ? <p className="text-white">Bienvenido  {session?.user?.name}</p> : <p></p>}
-                            <a href="/api/auth/signout" className="px-4 py-2 text-slate-100 bg-red-700 rounded-md hover:bg-slate-100 hover:text-red-700">Desconectarse</a>
+                            <a href="/api/auth/signout" className="px-4 py-2 gap-1 text-slate-100 rounded-md  ">
+                                
+                         
+                                <IoMdExit className="text-2xl text-red-700" />
+
+                            </a>
                         </div>
                     </div>
 
@@ -49,10 +56,10 @@ const Navbar = ({ children }: any) => {
                                 {pathname !== `/users/view/${session?.user?.identification}` ? <NavbarLink active={false} text="Perfil" rute={`/users/view/${session?.user?.identification}`} /> : <NavbarLink active={true} text="Perfil" rute={`/users/view/${session?.user?.identification}`} />}
 
                                 {pathname !== "/users" ? <NavbarLink active={false} text="Usuarios" rute="/users" /> : <NavbarLink active={false} text="Usuarios" rute="/users" />}
-                                <Nlink rute0="/users" rute1="/users/create"/>
+                                <Nlink rute0="/users" rute1="/users/create" />
                                 {pathname !== "/athletes" ? <NavbarLink active={false} text="Deportistas" rute="/athletes" /> : <NavbarLink active={false} text="Deportistas" rute="/athletes" />}
                                 {/* {pathname !== "/records" ? <NavbarLink active={false} text="Historiales" rute="/records" /> : <NavbarLink active={true} text="Historiales" rute="/records" />} */}
-                                <Nlink rute0="/athletes" rute1="/athletes/create"/>
+                                <Nlink rute0="/athletes" rute1="/athletes/create" />
                             </ul>
                         </div>
                     </div>

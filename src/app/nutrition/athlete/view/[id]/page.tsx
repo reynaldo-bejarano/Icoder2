@@ -108,41 +108,40 @@ const ViewNutrition = () => {
                 {/* header */}
 
 
-
-
                 {
                     formulario.map((i: any) => {
 
                         return (
-                            <div className='grid grid-cols-6 gap-3 text-slate-600' key={Math.random()}>
+                            <div className='grid grid-cols-6 gap-3 text-slate-600 text-xs' key={Math.random()}>
 
                                 {/* Lunes */}
-                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-[#800f2f] text-slate-100 `} >
-                                    <div className={`py-2 mb-5 text-center text-slate-100 uppercase  `}>
+                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-slate-200 text-slate-900 `} >
+                                    <div className={`py-2 mb-5 text-center uppercase font-bold bg-slate-800 text-slate-100 `}>
                                         {i[1].day}
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center  `}>
+                                            <span className={`text-center uppercase font-bold  flex gap-3 items-center  `}>
                                                 <MdFreeBreakfast className='text-2xl' />
                                                 Desayuno </span>
                                         </div>
                                         <textarea
                                             id='breakfast'
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize`}
+                                            className={`w-full py-1 px-8 h-24 capitalize italic `}
                                             value={i[1].breakfast}
                                             disabled={true}
                                         />
+
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
 
                                                 <FaBowlFood className='text-2xl' />
                                                 Merienda  </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[1].merienda}
                                             disabled={true}
                                         />
@@ -150,40 +149,40 @@ const ViewNutrition = () => {
 
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
 
                                                 <MdDinnerDining className='text-2xl' />
                                                 Almuerzo
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[1].lunch}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
                                                 <PiOrangeFill className='text-2xl' />
                                                 Snack
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[1].snack}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
                                                 <BiSolidDish className='text-2xl' />
                                                 Cena
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit  capitalize  `}
+                                            className={`w-full py-1  px-8 h-24  capitalize italic  `}
                                             value={i[1].dinner}
                                             disabled={true}
                                         />
@@ -192,32 +191,32 @@ const ViewNutrition = () => {
                                 {/* Lunes */}
 
                                 {/* Martes */}
-                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-[#800f2f] text-slate-100`} >
-                                    <div className={`py-2 mb-5 text-center text-slate-100 uppercase  `}>
+                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-slate-200 text-slate-900`} >
+                                    <div className={`py-2 mb-5 text-center  uppercase font-bold bg-slate-800 text-slate-100 `}>
                                         {i[2].day}
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3`}>
                                                 <MdFreeBreakfast className='text-2xl' />
                                                 Desayuno </span>
                                         </div>
                                         <textarea
                                             id='breakfast'
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize`}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic`}
                                             value={i[2].breakfast}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center`}>
 
                                                 <FaBowlFood className='text-2xl' />
                                                 Merienda  </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[2].merienda}
                                             disabled={true}
                                         />
@@ -225,40 +224,40 @@ const ViewNutrition = () => {
 
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center`}>
 
                                                 <MdDinnerDining className='text-2xl' />
                                                 Almuerzo
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[2].lunch}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center`}>
                                                 <PiOrangeFill className='text-2xl' />
                                                 Snack
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[2].snack}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2 '>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center`}>
                                                 <BiSolidDish className='text-2xl' />
                                                 Cena
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit  capitalize `}
+                                            className={`w-full py-1  px-8 h-24  capitalize italic `}
                                             value={i[2].dinner}
                                             disabled={true}
                                         />
@@ -267,32 +266,32 @@ const ViewNutrition = () => {
                                 {/* Martes */}
 
                                 {/* Miercoles */}
-                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-[#800f2f] text-slate-100`} >
-                                    <div className={`py-2 mb-5 text-center text-slate-100 uppercase  `}>
+                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-slate-200 text-slate-900`} >
+                                    <div className={`py-2 mb-5 text-center  uppercase font-bold bg-slate-800 text-slate-100`}>
                                         {i[3].day}
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
                                                 <MdFreeBreakfast className='text-2xl' />
                                                 Desayuno </span>
                                         </div>
                                         <textarea
                                             id='breakfast'
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize`}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic`}
                                             value={i[3].breakfast}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center`}>
 
                                                 <FaBowlFood className='text-2xl' />
                                                 Merienda  </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[3].merienda}
                                             disabled={true}
                                         />
@@ -300,40 +299,40 @@ const ViewNutrition = () => {
 
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center`}>
 
                                                 <MdDinnerDining className='text-2xl' />
                                                 Almuerzo
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[3].lunch}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center`}>
                                                 <PiOrangeFill className='text-2xl' />
                                                 Snack
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[3].snack}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center`}>
                                                 <BiSolidDish className='text-2xl' />
                                                 Cena
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit  capitalize  `}
+                                            className={`w-full py-1  px-8 h-24  capitalize italic  `}
                                             value={i[3].dinner}
                                             disabled={true}
                                         />
@@ -342,32 +341,32 @@ const ViewNutrition = () => {
                                 {/* Miercoles */}
 
                                 {/* Jueves */}
-                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-[#800f2f] text-slate-100`} >
-                                    <div className={`py-2 mb-5 text-center text-slate-100 uppercase `}>
+                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-slate-200 text-slate-900`} >
+                                    <div className={`py-2 mb-5 text-center uppercase font-bold bg-slate-800 text-slate-100 `}>
                                         {i[4].day}
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
                                                 <MdFreeBreakfast className='text-2xl' />
                                                 Desayuno </span>
                                         </div>
                                         <textarea
                                             id='breakfast'
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize`}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic`}
                                             value={i[4].breakfast}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
 
                                                 <FaBowlFood className='text-2xl' />
                                                 Merienda  </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[4].merienda}
                                             disabled={true}
                                         />
@@ -375,40 +374,40 @@ const ViewNutrition = () => {
 
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
 
                                                 <MdDinnerDining className='text-2xl' />
                                                 Almuerzo
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[4].lunch}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
                                                 <PiOrangeFill className='text-2xl' />
                                                 Snack
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[4].snack}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
                                                 <BiSolidDish className='text-2xl' />
                                                 Cena
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit  capitalize  `}
+                                            className={`w-full py-1  px-8 h-24  capitalize italic  `}
                                             value={i[4].dinner}
                                             disabled={true}
                                         />
@@ -417,32 +416,32 @@ const ViewNutrition = () => {
                                 {/* Jueves */}
 
                                 {/* Viernes */}
-                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-[#800f2f] text-slate-100`} >
-                                    <div className={`py-2 mb-5 text-center text-slate-100 uppercase  `}>
+                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-slate-200 text-slate-900`} >
+                                    <div className={`py-2 mb-5 text-center  uppercase font-bold bg-slate-800 text-slate-100`}>
                                         {i[5].day}
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
                                                 <MdFreeBreakfast className='text-2xl' />
                                                 Desayuno </span>
                                         </div>
                                         <textarea
                                             id='breakfast'
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize`}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic`}
                                             value={i[5].breakfast}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center text-[#800f2f]`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
 
                                                 <FaBowlFood className='text-2xl' />
                                                 Merienda  </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[5].merienda}
                                             disabled={true}
                                         />
@@ -450,40 +449,40 @@ const ViewNutrition = () => {
 
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center text-[#800f2f]`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
 
                                                 <MdDinnerDining className='text-2xl' />
                                                 Almuerzo
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[5].lunch}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center text-[#800f2f]`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center`}>
                                                 <PiOrangeFill className='text-2xl' />
                                                 Snack
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[5].snack}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center text-[#800f2f]`}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
                                                 <BiSolidDish className='text-2xl' />
                                                 Cena
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit  capitalize  `}
+                                            className={`w-full py-1  px-8 h-24  capitalize italic  `}
                                             value={i[5].dinner}
                                             disabled={true}
                                         />
@@ -492,32 +491,32 @@ const ViewNutrition = () => {
                                 {/* Viernes */}
 
                                 {/* sabado */}
-                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-[#800f2f] text-slate-100`} >
-                                    <div className={`py-2 mb-5 text-center uppercase `}>
+                                <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-slate-200 text-slate-900 `} >
+                                    <div className={`py-2 mb-5 text-center uppercase font-bold bg-slate-800 text-slate-100`}>
                                         {i[6].day}
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm flex gap-3 items-center  `}>
+                                            <span className={`text-center uppercase font-bold  flex gap-3 items-center  `}>
                                                 <MdFreeBreakfast className='text-2xl ' />
                                                 Desayuno </span>
                                         </div>
                                         <textarea
                                             id='breakfast'
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize`}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic`}
                                             value={i[6].breakfast}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
 
                                                 <FaBowlFood className='text-2xl' />
                                                 Merienda  </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[6].merienda}
                                             disabled={true}
                                         />
@@ -525,40 +524,40 @@ const ViewNutrition = () => {
 
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
 
                                                 <MdDinnerDining className='text-2xl' />
                                                 Almuerzo
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[6].lunch}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
+                                            <span className={`text-center uppercase font-bold   flex gap-3 items-center `}>
                                                 <PiOrangeFill className='text-2xl' />
                                                 Snack
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit capitalize `}
+                                            className={`w-full py-1  px-8 h-24 capitalize italic `}
                                             value={i[6].snack}
                                             disabled={true}
                                         />
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
-                                            <span className={`text-center uppercase font-bold text-sm  flex gap-3 items-center `}>
-                                                <BiSolidDish className='text-2xl' />
+                                            <span className={`text-center uppercase font-bold  flex gap-3 items-center `}>
+                                                <BiSolidDish className='text-2xl font' />
                                                 Cena
                                             </span>
                                         </div>
                                         <textarea
-                                            className={`w-full py-1 my-2 px-8 h-fit  capitalize  `}
+                                            className={`w-full py-1  px-8 h-20  capitalize italic  `}
                                             value={i[6].dinner}
                                             disabled={true}
                                         />
@@ -571,6 +570,9 @@ const ViewNutrition = () => {
                     })
 
                 }
+
+
+
             </div>
         </div>
     )

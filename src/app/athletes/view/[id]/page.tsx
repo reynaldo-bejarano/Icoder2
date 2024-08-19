@@ -4,7 +4,6 @@ import axios, { AxiosError } from 'axios';
 import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react'
 import { RiEditBoxFill } from "react-icons/ri";
-import { BsCalendarDateFill } from "react-icons/bs";
 import { CiCalendarDate } from "react-icons/ci";
 import DateTable from '@/app/components/dates/table/athlete/page';
 import RutineTable from '@/app/components/rutines/table/page';
@@ -104,7 +103,7 @@ const ViewAthlete = () => {
                 </span>
               </button>
               <button
-                onClick={() => navigation.push(`/rutine/athlete/${athlete?.identification}`)}
+                onClick={() => navigation.push(`/rutine/athlete/view/${athlete?.identification}`)}
                 className=" flex items-center gap-1 bg-purple-600 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
               >
                 <RiEditBoxFill className='text-slate-100 text-md' />
@@ -465,9 +464,6 @@ const ViewAthlete = () => {
               </div> */}
             </div>
           </div>
-
-
-
         </div>
 
         <DateTable />
