@@ -173,7 +173,7 @@ const ViewAthlete = () => {
               </div>
               <div className='grid gap-1'>
                 <label>Edad</label>
-                <span className='w-full px-2 bg-slate-100'>{athlete?.birth && calcularEdad(`${athlete?.birth}`)}</span>
+                <span className='w-full px-2 bg-slate-100'>{athlete?.birth ? calcularEdad(`${athlete?.birth}`) : "Cargando"}</span>
               </div>
               <div className='grid gap-1'>
                 <label >Género</label>

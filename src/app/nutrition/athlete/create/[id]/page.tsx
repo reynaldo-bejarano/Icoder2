@@ -164,15 +164,7 @@ const CreateNutrition = () => {
                     >
                         Volver
                     </button>
-                    <div className='flex gap-2'>
-                         <button
-                            className='bg-slate-200 px-4 py-1 text-sm rounded-md  text-slate-900 flex items-center gap-2'
-                            onClick={e => { navigation.push(`/historical/athlete/morphological/view/${athleteID.id}`) }}
-                        >
-                            <FaPlus className='text-sm' />
-                            Crear
-                        </button> 
-                    </div>
+                   
                 </div>
                 {/* header */}
 

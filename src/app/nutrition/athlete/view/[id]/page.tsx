@@ -97,7 +97,7 @@ const ViewNutrition = () => {
                     </button>
                     <div className='flex gap-2'>
                         <button
-                            className='bg-slate-200 px-4 py-1 text-sm rounded-md  text-slate-900 flex items-center gap-2'
+                            className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
                             onClick={e => { navigation.push(`/nutrition/athlete/create/${athleteID.id}`) }}
                         >
                             <FaPlus className='text-sm' />

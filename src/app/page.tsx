@@ -15,7 +15,7 @@ const DashboardPage = () => {
       <div className="container w-full mx-auto py-4 text-slate-900 flex justify-center items-center">
         <Image
           src={"/logoICODER_2023.png"}
-          width={"760"}
+          width={"560"}
           height={"100"}
           alt="ICODER Logo"
         />

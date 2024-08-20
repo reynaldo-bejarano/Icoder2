@@ -177,7 +177,7 @@ const ReviewMedical = () => {
                   </div>
                   <div className='grid gap-1 col-span-6'>
                     <label >Anotaciones</label>
-                    <span className='w-full h-14 px-2 bg-slate-100 italic capitalize'>{medicalData?.lesion?.anotacion || "Cargando..."}</span>
+                    <span className='w-full h-14 px-2 bg-slate-100 italic capitalize'>{medicalData?.lesion?.anotacion || " "}</span>
                   </div>
                 </div>
               </div>
@@ -185,14 +185,14 @@ const ReviewMedical = () => {
                 <div className='py-1 grid grid-cols-3 gap-4 w-full'>
                   <div className='grid gap-1 col-span-3'>
                     <label >Recomendaciones</label>
-                    <span className='w-full h-48 px-2 bg-slate-100 italic capitalize'>{medicalData?.lesion?.recomendacion || "Cargando..."}</span>
+                    <span className='w-full h-48 px-2 bg-slate-100 italic capitalize'>{medicalData?.lesion?.recomendacion || " "}</span>
                   </div>
                 </div>
               </div>
             </div>
             <div className='py-4 bg-slate-200 flex justify-end gap-4'>
-              <button onClick={handleFinishButton} className='bg-slate-400 px-4 py-2 rounded-md shadow-lg text-slate-100'>Finalizar</button>
-              <button className='bg-orange-500 px-4 py-2 rounded-md shadow-lg text-slate-100'>Editar</button>
+              <button onClick={handleFinishButton} className={medicalData?.active ? 'bg-slate-400 px-4 py-2 rounded-md shadow-lg text-slate-100' : "hidden"}>Finalizar</button>
+              <button className={medicalData?.active ? 'bg-orange-500 px-4 py-2 rounded-md shadow-lg text-slate-100' : "hidden"}>Editar</button>
             </div>
           </div>
           {/* Informa Lesion*/}
