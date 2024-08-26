@@ -1,10 +1,10 @@
 import { gruposIDS } from '@/libs/gruposIDS';
 import { gruposMusculares } from '@/libs/gruposMusculares';
-import { pechoEjercicios } from '@/utils/ejercicios';
-import { match } from 'assert';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 import axios from 'axios';
 import { useParams } from 'next/navigation';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import PDFRutine from '../../pdf/rutine';
 
 
 const RutineTable = () => {
@@ -33,8 +33,19 @@ const RutineTable = () => {
                 {/* Dia */}
 
                 <div className=' text-slate-100 p-2 grid grid-cols-6'>
-                    <div className='bg-slate-900 text-slate-100 text-center text-md col-span-6'>
-                        Rutina de ejercicios
+                    <div className='text-center col-span-6  flex gap-2 justify-between px-5 bg-slate-900 text-slate-100 py-1 my-2'>
+                        <span className=' text-base text-center'>
+                            Rutina de ejercicios
+                        </span>
+                        <div>
+                            <PDFDownloadLink document={<PDFRutine rutineData={rutine} id={athleteID.id} />} fileName={`rutina ${athleteID.id}.pdf`}>
+                                {
+                                    ({ loading, url, error }) => loading
+                                        ? <button className='bg-slate-400 py-1 px-2 text-slate-100  text-center rounded-md text-xs' disabled={true}>Cargando plan</button>
+                                        : <button className='bg-slate-400 py-1 px-2 text-slate-100  text-center rounded-md text-xs'>Descargar plan</button>
+                                }
+                            </PDFDownloadLink>
+                        </div>
                     </div>
                     {gruposMusculares.map<any>((g: any) => {
                         return (
@@ -53,7 +64,7 @@ const RutineTable = () => {
                                                     {
                                                         rutine.map((item: any) => {
                                                             // && item[i.id].active === true
-                                                            if (g.grupo === item[i.id].musculo) {
+                                                            if (g.grupo === item[i.id].musculo ) {
                                                                 return (
                                                                     // aqui
                                                                     <div
@@ -158,21 +169,6 @@ const RutineTable = () => {
                     })}
                 </div>
             </div>
-            {/* :
-            <div>
-                <div className=' bg-slate-200 items-center justify-center'>
-                    <div className=' text-slate-100 p-2 grid grid-cols-6'>
-                        <div className='bg-slate-900 text-slate-100 text-center col-span-6'>
-                            Rutina de ejercicios
-                        </div>
-                    </div>
-                    <div className='w-full text-center  py-2'>
-                        <span className='text-center text-md'>No existe rutina registrada para este deportista</span>
-                    </div>
-                </div>
-            </div> */}
-
-
         </>
 
 

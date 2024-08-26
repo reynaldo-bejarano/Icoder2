@@ -97,7 +97,7 @@ const ViewUser = () => {
               </div>
               <div className='grid gap-1'>
                 <label>Edad</label>
-                <span className='w-full px-2 bg-slate-100'>{user?.birth && calcularEdad(`${user?.birth}`)}</span>
+                <span className='w-full px-2 bg-slate-100'>{user?.birth && calcularEdad(`${user?.birth}`) || "Cargando" }</span>
               </div>
               <div className='grid gap-1'>
                 <label >Especialidad</label>

@@ -6,8 +6,7 @@ import axios, { AxiosError } from "axios";
 import ModalDetailsUser from "../components/modals/modalDetailsUsers";
 import { changedetailsmodal } from "@/redux/features/userdetailsmodalSlide";
 import { BsFillInfoSquareFill } from "react-icons/bs";
-import { MdDisabledByDefault } from "react-icons/md";
-import { RiEditBoxFill } from "react-icons/ri";
+import { FaEye, FaEdit } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
 
@@ -121,9 +120,13 @@ const UsersPage = () => {
                     <td className="col-span-1 pl-10">{item?.lastname2}</td>
                     <td className="col-span-1 pl-10 lowercase">{item?.email}</td>
                     <td className="col-span-1 pl-10">{item?.phone}</td>
-                    <td className="flex gap-2 items-center justify-center col-span-1">
-                      <button onClick={() => navigation.push(`users/view/${item.identification}`)} className="bg-slate-100  text-slate-800  text-2xl md:col-span-1 text-center ">
-                        <BsFillInfoSquareFill />
+                    <td className="flex gap-4 items-center justify-center col-span-1">
+                     
+                      <button onClick={() => navigation.push(`users/view/${item.identification}`)} className=" text-slate-800  text-2xl md:col-span-1 text-center ">
+                        <FaEye />
+                      </button>
+                      <button onClick={() => navigation.push(`users/view/${item.identification}`)} className=" text-slate-800  text-2xl md:col-span-1 text-center ">
+                        <FaEdit  />
                       </button>
 
                     </td>

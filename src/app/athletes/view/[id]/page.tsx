@@ -8,6 +8,8 @@ import { CiCalendarDate } from "react-icons/ci";
 import DateTable from '@/app/components/dates/table/athlete/page';
 import RutineTable from '@/app/components/rutines/table/page';
 import TableNutrition from '@/app/components/nutrition/table/page';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+import PDFProfile from '@/app/components/pdf/profile';
 
 
 
@@ -19,9 +21,11 @@ const ViewAthlete = () => {
   const [cantonDataByID, setCantonDataByID] = useState<any>();
   const [distritoDataByID, setDistritoDataByID] = useState<any>();
   const [totalLesiones, setTotalLesiones] = useState<any>(0);
-
+  const [formulario, setFormulario] = useState<any>([]);
   const navigation = useRouter();
   const searchParams = useParams()
+
+
 
   useEffect(() => {
     async function fetchData() {
@@ -31,7 +35,7 @@ const ViewAthlete = () => {
         setMorphological(res.data.morphologicalData[0])
         const response = await axios.get(`/api/auth/medical/document/count/${searchParams.id}`)
         setTotalLesiones(response.data.totalItems)
-        
+
       } catch (error) {
         if (error instanceof AxiosError) console.error('Error fetching data:', error);
       }
@@ -73,6 +77,22 @@ const ViewAthlete = () => {
     }
   }, [athlete])
 
+  useEffect(() => {
+
+    async function fetchData() {
+      try {
+        const res = await axios.get(`/api/auth/nutrition/view/${searchParams.id}`)
+        console.log(res.data.nutritionDataByID)
+        setFormulario(res.data.nutritionDataByID)
+      } catch (error) {
+        if (error instanceof AxiosError) console.log(error)
+      }
+    }
+
+    fetchData();
+
+  }, [searchParams])
+
 
   return (
 
@@ -85,13 +105,17 @@ const ViewAthlete = () => {
         >
           {/* header */}
           <div className=' bg-slate-800 py-2 px-4 col-span-4 flex gap-4 items-center justify-between '>
-            <button
-              type='button'
-              onClick={() => navigation.push('/athletes')}
-              className=" flex items-center gap-1 bg-slate-200 py-1 px-2 text-slate-90 rounded-md md:col-span-1 text-center "
-            >
-              Volver
-            </button>
+            <div className='flex items-center gap-2'>
+              <button
+                type='button'
+                onClick={() => navigation.push('/athletes')}
+                className=" flex items-center gap-1 bg-slate-200 py-1 px-2 text-slate-90 rounded-md md:col-span-1 text-center "
+              >
+                Volver
+              </button>
+
+            </div>
+
             <div className='flex items-center gap-4'>
               <button
                 onClick={() => navigation.push(`/dates/create/${athlete?.identification}`)}
@@ -112,7 +136,7 @@ const ViewAthlete = () => {
                 </span>
               </button>
               <button
-              onClick={() => navigation.push(`/nutrition/athlete/view/${athlete?.identification}`)}
+                onClick={() => navigation.push(`/nutrition/athlete/view/${athlete?.identification}`)}
                 className=" flex items-center gap-1 bg-cyan-600 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
               >
                 <RiEditBoxFill className='text-slate-100 text-md' />
@@ -127,7 +151,7 @@ const ViewAthlete = () => {
                 <RiEditBoxFill className='text-slate-100 text-md' />
                 <span className='text-md flex gap-2'>
                   Médico
-                  <span className={totalLesiones > 0 ?'bg-red-600 rounded-full h-5 w-5' : "hidden"}>{totalLesiones}</span>
+                  <span className={totalLesiones > 0 ? 'bg-red-600 rounded-full h-5 w-5' : "hidden"}>{totalLesiones}</span>
                 </span>
               </button>
               <button
@@ -137,30 +161,48 @@ const ViewAthlete = () => {
                 <RiEditBoxFill className='text-slate-100 text-md' />
                 <span className='text-md flex gap-2'>
                   Morfología
-                  
+
                 </span>
               </button>
-              <button
-                className=" flex items-center gap-1 bg-orange-500 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
-              >
-                <RiEditBoxFill className='text-slate-100 text-md' />
-                <span className='text-md'>
-                  Editar
-                </span>
-              </button>
-              <button
-                className=" flex items-center gap-1 bg-red-600 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
-              >
-                Desactivar
-              </button>
+
             </div>
-
-
           </div>
           {/* header */}
 
+          {/* <PDFViewer className='w-full '>
+            <PDFProfile athleteData={athlete} morphologicalData={morphological} cantonData={cantonDataByID} distritoData={distritoDataByID} sportData={sportDataByID} modalityData={modalityDataByID}  />
+          </PDFViewer> */}
+
+
+
+
+          <div className='col-span-4  flex justify-end gap-2 px-4 bg-slate-200 py-2'>
+            <button
+              className=" flex items-center gap-1 bg-slate-400 py-1 px-2 text-slate-100  md:col-span-1 text-center rounded-md text-xs "
+            >
+              <RiEditBoxFill className='text-slate-100 text-md' />
+              <span className='text-md'>
+                Editar datos
+              </span>
+            </button>
+            <PDFDownloadLink document={<PDFProfile athleteData={athlete} morphologicalData={morphological} cantonData={cantonDataByID} distritoData={distritoDataByID} sportData={sportDataByID} modalityData={modalityDataByID}  />} fileName={`perfil ${searchParams.id}.pdf`}>
+              {
+                ({ loading, url, error }) => loading
+                  ? <button className='bg-slate-400 py-1 px-2 text-slate-100  md:col-span-1 text-center rounded-md text-xs' disabled={true}>Cargando perfil</button>
+                  : <button className='bg-slate-400 py-1 px-2 text-slate-100  md:col-span-1 text-center rounded-md text-xs'>Descargar perfil</button>
+              }
+            </PDFDownloadLink>
+            <button
+              className=" flex items-center gap-1 bg-slate-400 py-1 px-2 text-slate-100  md:col-span-1 text-center rounded-md text-xs "
+            >
+              Desactivar perfil
+            </button>
+          </div>
+
+
           {/* Datos personales*/}
           <div className='w-full bg-slate-200 p-4 col-span-4 md:col-span-2'>
+
             <div className='bg-slate-800'>
               <h2 className='text-slate-100 w-full mx-4'>Datos personales</h2>
             </div>
@@ -455,13 +497,6 @@ const ViewAthlete = () => {
               </div>
               {/* gastrocnemio */}
 
-              {/* <div className=' bg-slate-100 p-4 col-span-6 flex gap-4 items-center justify-end'>
-                <button
-                  className=" flex items-center gap-1 bg-red-600 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "
-                >
-                  Desactivar
-                </button>
-              </div> */}
             </div>
           </div>
         </div>

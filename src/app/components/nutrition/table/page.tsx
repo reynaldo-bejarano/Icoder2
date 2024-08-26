@@ -7,6 +7,9 @@ import { PiOrangeFill } from "react-icons/pi";
 import { BiSolidDish } from "react-icons/bi";
 import { useParams, useRouter } from 'next/navigation';
 import axios, { AxiosError } from 'axios';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PDFProfile from '../../pdf/profile';
+import PDFNutrition from '../../pdf/nutrition';
 
 
 
@@ -86,11 +89,19 @@ const TableNutrition = () => {
 
             <div className="container w-full mx-auto text-xs py-4 text-slate-900">
 
-                <div className='text-center  bg-slate-900 text-slate-100 py-1 my-2'>
-                    <span className=' text-base'>
+                <div className='text-center  flex gap-2 justify-between px-5 bg-slate-900 text-slate-100 py-1 my-2'>
+                    <span className=' text-base text-center'>
                         Plan nutricional
                     </span>
-
+                    <div>
+                        <PDFDownloadLink document={<PDFNutrition formularioData={formulario} />} fileName={`plan nutricional ${athleteID.id}.pdf`}>
+                            {
+                                ({ loading, url, error }) => loading
+                                    ? <button className='bg-slate-400 py-1 px-2 text-slate-100  text-center rounded-md text-xs' disabled={true}>Cargando plan</button>
+                                    : <button className='bg-slate-400 py-1 px-2 text-slate-100  text-center rounded-md text-xs'>Descargar plan</button>
+                            }
+                        </PDFDownloadLink>
+                    </div>
                 </div>
 
                 {
@@ -103,6 +114,7 @@ const TableNutrition = () => {
                                 <div className={`col-span-6 md:col-span-1 border-2  w-full  rounded-md bg-slate-200 text-slate-900 `} >
                                     <div className={`py-2 mb-5 text-center uppercase font-bold bg-slate-800 text-slate-100 `}>
                                         {i[1].day}
+
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
@@ -116,7 +128,7 @@ const TableNutrition = () => {
                                             value={i[1].breakfast}
                                             disabled={true}
                                         />
-                                        
+
                                     </div>
                                     <div className='px-2'>
                                         <div className='w-full flex '>
