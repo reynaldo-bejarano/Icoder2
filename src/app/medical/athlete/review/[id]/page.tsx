@@ -1,12 +1,9 @@
 'use client'
 import calcularEdad from '@/hooks/calculateAge';
-import { addMedicalSchema } from '@/validations/addMedicalSchema';
-import { zodResolver } from '@hookform/resolvers/zod';
 import axios, { AxiosError } from 'axios';
 import { useSession } from 'next-auth/react';
 import { useParams, useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
 
 
@@ -23,11 +20,6 @@ type Inputs = {
 const ReviewMedical = () => {
   const { data: session } = useSession<any>();
   const [medicalData, setMedicalData] = useState<any>();
-  const [sportDataByID, setSportDataByID] = useState<any>();
-  const [modalityDataByID, setModalityDataByID] = useState<any>();
-  const [isLoading, setIsLoading] = useState(false)
-
-
   const navigation = useRouter();
   const searchParams = useParams()
 
@@ -35,7 +27,6 @@ const ReviewMedical = () => {
     async function fetchData() {
       try {
         const res = await axios.get(`/api/auth/medical/document/${searchParams.id}`)
-        console.log()
         setMedicalData(res.data.medicalDataByDocument[0])
       } catch (error) {
         if (error instanceof AxiosError) console.error('Error fetching data:', error);
@@ -55,11 +46,6 @@ const ReviewMedical = () => {
       if (error instanceof AxiosError) console.error('Error fetching data:', error);
     }
   }
-
-
-
-
-
 
 
   return (
@@ -190,10 +176,27 @@ const ReviewMedical = () => {
                 </div>
               </div>
             </div>
-            <div className='py-4 bg-slate-200 flex justify-end gap-4'>
-              <button onClick={handleFinishButton} className={medicalData?.active ? 'bg-slate-400 px-4 py-2 rounded-md shadow-lg text-slate-100' : "hidden"}>Finalizar</button>
-              <button className={medicalData?.active ? 'bg-orange-500 px-4 py-2 rounded-md shadow-lg text-slate-100' : "hidden"}>Editar</button>
-            </div>
+
+            {session?.user?.role === "médico" &&
+              <div className='py-4 bg-slate-200 flex justify-end gap-4'>
+                <button onClick={handleFinishButton} className={medicalData?.active ? 'bg-slate-400 px-4 py-2 rounded-md shadow-lg text-slate-100' : "hidden"}>Finalizar</button>
+                <button className={medicalData?.active ? 'bg-orange-500 px-4 py-2 rounded-md shadow-lg text-slate-100' : "hidden"}>Editar</button>
+              </div>
+            }
+            {session?.user?.role === "terapía física" &&
+              <div className='py-4 bg-slate-200 flex justify-end gap-4'>
+                <button onClick={handleFinishButton} className={medicalData?.active ? 'bg-slate-400 px-4 py-2 rounded-md shadow-lg text-slate-100' : "hidden"}>Finalizar</button>
+                <button className={medicalData?.active ? 'bg-orange-500 px-4 py-2 rounded-md shadow-lg text-slate-100' : "hidden"}>Editar</button>
+              </div>
+            }
+            {session?.user?.role === "admin" &&
+              <div className='py-4 bg-slate-200 flex justify-end gap-4'>
+                <button onClick={handleFinishButton} className={medicalData?.active ? 'bg-slate-400 px-4 py-2 rounded-md shadow-lg text-slate-100' : "hidden"}>Finalizar</button>
+                <button className={medicalData?.active ? 'bg-orange-500 px-4 py-2 rounded-md shadow-lg text-slate-100' : "hidden"}>Editar</button>
+              </div>
+            }
+
+
           </div>
           {/* Informa Lesion*/}
         </div>

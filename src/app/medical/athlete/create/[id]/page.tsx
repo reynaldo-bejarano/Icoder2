@@ -23,6 +23,15 @@ type Inputs = {
 const MedicalPage = () => {
   const { data: session } = useSession<any>();
 
+  useEffect(() => {
+    if (session?.user?.role === "nutrición") {
+      navigation.push("/")
+    }
+    if (session?.user?.role === "entrenador") {
+      navigation.push("/")
+    }
+  })
+
   const {
     register,
     handleSubmit,
@@ -36,10 +45,9 @@ const MedicalPage = () => {
   const [sportDataByID, setSportDataByID] = useState<any>();
   const [modalityDataByID, setModalityDataByID] = useState<any>();
   const [isLoading, setIsLoading] = useState(false)
-
-
   const navigation = useRouter();
   const searchParams = useParams()
+
 
   useEffect(() => {
     async function fetchData() {
@@ -94,7 +102,6 @@ const MedicalPage = () => {
       toast.success('Reporte médico registrado correctamente');
     } catch (error) {
       if (error instanceof AxiosError) {
-        console.log(error)
         toast.error('Error');
       }
     }
@@ -245,7 +252,7 @@ const MedicalPage = () => {
 
             </div>
             <div className='py-4 bg-slate-200 flex justify-end '>
-              <button type='submit' className='bg-green-700 px-4 py-2 rounded-md shadow-lg text-slate-100'>Registrar</button>
+              <button type='submit' disabled={isLoading} className='bg-green-700 px-4 py-2 rounded-md shadow-lg text-slate-100'>Registrar</button>
             </div>
           </div>
           {/* Informa Lesion*/}

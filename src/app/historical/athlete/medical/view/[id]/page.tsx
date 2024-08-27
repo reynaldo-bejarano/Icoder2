@@ -1,11 +1,9 @@
 'use client'
 import { useParams, useRouter } from 'next/navigation'
-import { FaPlus } from "react-icons/fa";
 import { BsFillInfoSquareFill } from "react-icons/bs";
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import converterIsoStringToDate from '@/hooks/converterIsoStringToDate';
-import { tr } from 'date-fns/locale';
 
 const HistoricalMedical = () => {
 

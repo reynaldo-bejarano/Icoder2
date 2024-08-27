@@ -4,9 +4,6 @@ import { gruposMusculares } from '@/libs/gruposMusculares';
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 import { useParams } from 'next/navigation';
 
-
-
-
 const RutineTable = ({ rutineData, id }: any) => {
     const athleteID = useParams();
 

@@ -3,7 +3,7 @@ import { gruposMusculares } from '@/libs/gruposMusculares'
 import { pechoEjercicios } from '@/utils/ejercicios'
 import axios, { AxiosError } from 'axios'
 import { useParams, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import toast from 'react-hot-toast'
 
 
@@ -189,17 +189,6 @@ const RutinePage = () => {
                 console.log(error)
             }
         }
-        // const filteredExercises = Object.entries<any>(isCheckedExercise)
-        //     .filter(([key, value]) => {
-        //         // Verificar si el valor es un objeto con una propiedad `active`
-        //         return typeof value === 'object' && value?.hasOwnProperty('active') && value.active === true;
-        //     })
-        //     .reduce<any>((acc, [key, value]) => {
-        //         // Añadir el par clave-valor al objeto acumulador
-        //         acc[key] = value;
-        //         return acc;
-        //     }, {});
-        // console.log(filteredExercises)
     }
 
 

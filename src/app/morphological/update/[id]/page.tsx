@@ -1,10 +1,9 @@
 'use client'
-import { addathleteSchema } from '@/validations/addathleteSchema';
 import { addmorphologicalSchema } from '@/validations/addmorphologicalSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios, { AxiosError } from 'axios';
 import { useParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 

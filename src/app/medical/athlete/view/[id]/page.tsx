@@ -2,13 +2,13 @@
 import { useParams, useRouter } from 'next/navigation'
 import { FaPlus } from "react-icons/fa";
 import { BsFillInfoSquareFill } from "react-icons/bs";
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios';
 import converterIsoStringToDate from '@/hooks/converterIsoStringToDate';
-import { tr } from 'date-fns/locale';
+import { useSession } from 'next-auth/react';
 
 const ViewMedical = () => {
-
+    const { data: session } = useSession<any>();
     const navigation = useRouter();
     const athleteID = useParams()
     const [medical, setMedical] = useState([])
@@ -48,13 +48,35 @@ const ViewMedical = () => {
                             <FaPlus className='text-sm' />
                             Historial
                         </button>
-                        <button
-                            className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
-                            onClick={e => { navigation.push(`/medical/athlete/create/${athleteID.id}`) }}
-                        >
-                            <FaPlus className='text-sm' />
-                            Crear informe médico
-                        </button>
+
+
+                        {session?.user?.role === "médico" &&
+                            <button
+                                className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
+                                onClick={e => { navigation.push(`/medical/athlete/create/${athleteID.id}`) }}
+                            >
+                                <FaPlus className='text-sm' />
+                                Crear informe médico
+                            </button>
+                        }
+                        {session?.user?.role === "terapía física" &&
+                            <button
+                                className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
+                                onClick={e => { navigation.push(`/medical/athlete/create/${athleteID.id}`) }}
+                            >
+                                <FaPlus className='text-sm' />
+                                Crear informe médico
+                            </button>
+                        }
+                        {session?.user?.role === "admin" &&
+                            <button
+                                className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
+                                onClick={e => { navigation.push(`/medical/athlete/create/${athleteID.id}`) }}
+                            >
+                                <FaPlus className='text-sm' />
+                                Crear informe médico
+                            </button>
+                        }
                     </div>
 
                 </div>

@@ -3,9 +3,6 @@ import { RiProfileLine } from "react-icons/ri";
 import { FaUsersRectangle } from "react-icons/fa6";
 import { MdSportsGymnastics } from "react-icons/md";
 
-
-
-
 const NavbarLink = ({ active, rute, text }: { active: boolean, text: string, rute: string }) => {
     return (
         <>

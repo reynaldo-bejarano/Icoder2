@@ -1,22 +1,34 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MdFreeBreakfast } from "react-icons/md";
 import { FaBowlFood } from "react-icons/fa6";
 import { MdDinnerDining } from "react-icons/md";
 import { PiOrangeFill } from "react-icons/pi";
 import { BiSolidDish } from "react-icons/bi";
 import { useParams, useRouter } from 'next/navigation';
-import { FaPlus } from "react-icons/fa";
 import axios, { AxiosError } from 'axios';
 import toast from 'react-hot-toast';
+import { useSession } from 'next-auth/react';
 
 
 const CreateNutrition = () => {
-
+    const { data: session } = useSession<any>();
     const navigation = useRouter();
     const athleteID = useParams();
     const [loading, setLoading] = useState(false)
     let numDays = 0;
+
+    useEffect(() => {
+        if (session?.user?.role === "médico") {
+            navigation.push("/")
+        }
+        if (session?.user?.role === "entrenador") {
+            navigation.push("/")
+        }
+        if (session?.user?.role === "terapía física") {
+            navigation.push("/")
+        }
+    })
 
     const [formulario, setFormulario] = useState<any>({
         athlete_id: athleteID.id,
@@ -164,7 +176,7 @@ const CreateNutrition = () => {
                     >
                         Volver
                     </button>
-                   
+
                 </div>
                 {/* header */}
 

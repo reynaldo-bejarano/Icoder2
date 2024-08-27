@@ -1,8 +1,7 @@
 'use client'
 import { useParams, useRouter } from 'next/navigation'
 import { FaPlus } from "react-icons/fa";
-
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios, { AxiosError } from 'axios';
 
 
@@ -11,13 +10,8 @@ const ViewMorphological = () => {
 
     const navigation = useRouter();
     const athleteID = useParams()
-    const [medical, setMedical] = useState([])
-    const [athlete, setAthlete] = useState<any>();
     const [morphological, setMorphological] = useState<any>();
     
-
-
-
     useEffect(() => {
         async function fetchData() {
           try {

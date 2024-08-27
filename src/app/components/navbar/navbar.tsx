@@ -8,8 +8,6 @@ import Nlink from "./Nlink";
 import { IoMdExit } from "react-icons/io";
 
 
-
-
 const Navbar = ({ children }: any) => {
 
     const { data: session } = useSession<any>();

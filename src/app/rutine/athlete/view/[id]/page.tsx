@@ -1,19 +1,16 @@
 'use client'
 import RutineTable from '@/app/components/rutines/table/page'
-import { gruposMusculares } from '@/libs/gruposMusculares'
-import { pechoEjercicios } from '@/utils/ejercicios'
-import axios, { AxiosError } from 'axios'
+import { useSession } from 'next-auth/react';
 import { useParams, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import toast from 'react-hot-toast'
 import { FaPlus } from "react-icons/fa";
 
 
 
 const RutinePage = () => {
-
+    const { data: session } = useSession<any>();
     const navigation = useRouter()
     const athleteID = useParams()
+
 
     return (
         <div className='w-full h-screen'>
@@ -30,13 +27,27 @@ const RutinePage = () => {
                     </button>
 
                     <div className='flex items-center gap-4'>
-                        <button
-                            className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
-                            onClick={e => { navigation.push(`/rutine/athlete/create/${athleteID.id}`) }}
-                        >
-                            <FaPlus className='text-sm' />
-                            Crear
-                        </button>
+
+                        {session?.user?.role === "entrenador" &&
+                            <button
+                                className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
+                                onClick={e => { navigation.push(`/rutine/athlete/create/${athleteID.id}`) }}
+                            >
+                                <FaPlus className='text-sm' />
+                                Crear
+                            </button>
+                        }
+
+                        {session?.user?.role === "admin" &&
+                            <button
+                                className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
+                                onClick={e => { navigation.push(`/rutine/athlete/create/${athleteID.id}`) }}
+                            >
+                                <FaPlus className='text-sm' />
+                                Crear
+                            </button>
+                        }
+
                     </div>
                 </div>
                 {/* header */}

@@ -5,20 +5,17 @@ import { FaBowlFood } from "react-icons/fa6";
 import { MdDinnerDining } from "react-icons/md";
 import { PiOrangeFill } from "react-icons/pi";
 import { BiSolidDish } from "react-icons/bi";
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import axios, { AxiosError } from 'axios';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import PDFProfile from '../../pdf/profile';
 import PDFNutrition from '../../pdf/nutrition';
 
 
 
 const TableNutrition = () => {
 
-    const navigation = useRouter();
     const athleteID = useParams();
     const [formulario, setFormulario] = useState<any>([]);
-
 
     const [dias, setDias] = useState([
         {

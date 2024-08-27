@@ -1,8 +1,6 @@
 import calcularEdad from "@/hooks/calculateAge";
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 
-
-
 // Define styles
 const styles = StyleSheet.create({
     container: {

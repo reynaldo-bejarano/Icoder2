@@ -11,7 +11,6 @@ const COLORSData = ['#ba3369', '#098074', '#023047', '#880d1e', '#f36112'];
 const COLORSSports = ['#ba3369', '#098074', '#023047', '#880d1e', '#f36112', '#593c8f', '#003d14', '#004e98', '#e63946', '#6a994e'];
 
 
-
 const Charts = () => {
 
     const [data, setData] = useState([

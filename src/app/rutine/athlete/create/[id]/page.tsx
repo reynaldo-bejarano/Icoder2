@@ -2,6 +2,7 @@
 import { gruposMusculares } from '@/libs/gruposMusculares'
 import { pechoEjercicios } from '@/utils/ejercicios'
 import axios, { AxiosError } from 'axios'
+import { useSession } from 'next-auth/react'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
@@ -9,6 +10,19 @@ import toast from 'react-hot-toast'
 
 
 const RutinePage = () => {
+    const { data: session } = useSession<any>();
+
+    useEffect(() => {
+        if (session?.user?.role === "médico") {
+            navigation.push("/")
+        }
+        if (session?.user?.role === "terapía física") {
+            navigation.push("/")
+        }
+        if (session?.user?.role === "nutrición") {
+            navigation.push("/")
+        }
+    })
 
     const navigation = useRouter()
     const athleteID = useParams()

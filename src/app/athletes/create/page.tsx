@@ -148,8 +148,6 @@ const CreateAthlete = () => {
         setIsLoading(false);
     }
 
-
-
     return (
         <div className='w-full h-screen'>
             <div className="container w-full mx-auto py-4 text-slate-900">

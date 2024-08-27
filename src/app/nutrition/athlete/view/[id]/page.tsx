@@ -8,6 +8,7 @@ import { BiSolidDish } from "react-icons/bi";
 import { useParams, useRouter } from 'next/navigation';
 import { FaPlus } from "react-icons/fa";
 import axios, { AxiosError } from 'axios';
+import { useSession } from 'next-auth/react';
 
 
 
@@ -16,6 +17,7 @@ const ViewNutrition = () => {
     const navigation = useRouter();
     const athleteID = useParams();
     const [formulario, setFormulario] = useState<any>([]);
+    const { data: session } = useSession<any>();
 
 
     const [dias, setDias] = useState([
@@ -96,13 +98,25 @@ const ViewNutrition = () => {
                         Volver
                     </button>
                     <div className='flex gap-2'>
-                        <button
-                            className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
-                            onClick={e => { navigation.push(`/nutrition/athlete/create/${athleteID.id}`) }}
-                        >
-                            <FaPlus className='text-sm' />
-                            Crear
-                        </button>
+                        {session?.user?.role === "nutrición" &&
+                            <button
+                                className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
+                                onClick={e => { navigation.push(`/nutrition/athlete/create/${athleteID.id}`) }}
+                            >
+                                <FaPlus className='text-sm' />
+                                Crear
+                            </button>
+                        }
+                        {session?.user?.role === "admin" &&
+                            <button
+                                className='bg-green-600 px-4 py-1 text-sm rounded-md  text-slate-100 flex items-center gap-2'
+                                onClick={e => { navigation.push(`/nutrition/athlete/create/${athleteID.id}`) }}
+                            >
+                                <FaPlus className='text-sm' />
+                                Crear
+                            </button>
+                        }
+
                     </div>
                 </div>
                 {/* header */}

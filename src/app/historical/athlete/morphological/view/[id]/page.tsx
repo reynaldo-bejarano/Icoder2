@@ -1,6 +1,5 @@
 'use client'
 import { useParams, useRouter } from 'next/navigation'
-import { BsFillInfoSquareFill } from "react-icons/bs";
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import converterIsoStringToDate from '@/hooks/converterIsoStringToDate';

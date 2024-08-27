@@ -8,7 +8,7 @@ import { CiCalendarDate } from "react-icons/ci";
 import DateTable from '@/app/components/dates/table/athlete/page';
 import RutineTable from '@/app/components/rutines/table/page';
 import TableNutrition from '@/app/components/nutrition/table/page';
-import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 import PDFProfile from '@/app/components/pdf/profile';
 
 
@@ -21,11 +21,8 @@ const ViewAthlete = () => {
   const [cantonDataByID, setCantonDataByID] = useState<any>();
   const [distritoDataByID, setDistritoDataByID] = useState<any>();
   const [totalLesiones, setTotalLesiones] = useState<any>(0);
-  const [formulario, setFormulario] = useState<any>([]);
   const navigation = useRouter();
   const searchParams = useParams()
-
-
 
   useEffect(() => {
     async function fetchData() {
@@ -77,21 +74,6 @@ const ViewAthlete = () => {
     }
   }, [athlete])
 
-  useEffect(() => {
-
-    async function fetchData() {
-      try {
-        const res = await axios.get(`/api/auth/nutrition/view/${searchParams.id}`)
-        console.log(res.data.nutritionDataByID)
-        setFormulario(res.data.nutritionDataByID)
-      } catch (error) {
-        if (error instanceof AxiosError) console.log(error)
-      }
-    }
-
-    fetchData();
-
-  }, [searchParams])
 
 
   return (
@@ -169,12 +151,6 @@ const ViewAthlete = () => {
           </div>
           {/* header */}
 
-          {/* <PDFViewer className='w-full '>
-            <PDFProfile athleteData={athlete} morphologicalData={morphological} cantonData={cantonDataByID} distritoData={distritoDataByID} sportData={sportDataByID} modalityData={modalityDataByID}  />
-          </PDFViewer> */}
-
-
-
 
           <div className='col-span-4  flex justify-end gap-2 px-4 bg-slate-200 py-2'>
             <button
@@ -185,9 +161,9 @@ const ViewAthlete = () => {
                 Editar datos
               </span>
             </button>
-            <PDFDownloadLink document={<PDFProfile athleteData={athlete} morphologicalData={morphological} cantonData={cantonDataByID} distritoData={distritoDataByID} sportData={sportDataByID} modalityData={modalityDataByID}  />} fileName={`perfil ${searchParams.id}.pdf`}>
+            <PDFDownloadLink document={<PDFProfile athleteData={athlete} morphologicalData={morphological} cantonData={cantonDataByID} distritoData={distritoDataByID} sportData={sportDataByID} modalityData={modalityDataByID} />} fileName={`perfil ${searchParams.id}.pdf`}>
               {
-                ({ loading, url, error }) => loading
+                ({ loading }) => loading
                   ? <button className='bg-slate-400 py-1 px-2 text-slate-100  md:col-span-1 text-center rounded-md text-xs' disabled={true}>Cargando perfil</button>
                   : <button className='bg-slate-400 py-1 px-2 text-slate-100  md:col-span-1 text-center rounded-md text-xs'>Descargar perfil</button>
               }
