@@ -174,9 +174,6 @@ const ViewUser = () => {
           <div className='w-full bg-slate-200 p-4 col-span-4'>
 
             <div className='grid md:grid-cols-6 gap-2 '>
-
-
-
               {/* <div className=' bg-slate-100 p-4 col-span-6 flex gap-4 items-center justify-end'>
                 <button
                   className=" flex items-center gap-1 bg-red-600 py-1 px-2 text-slate-100 rounded-md md:col-span-1 text-center "

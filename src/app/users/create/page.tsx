@@ -14,8 +14,6 @@ const CreateUser = () => {
     const [isLoading, setIsLoading] = useState(false)
     const navigation = useRouter();
 
-
-
     const {
         register,
         handleSubmit,
@@ -60,10 +58,8 @@ const CreateUser = () => {
 
     const onSubmit: SubmitHandler<any> = async (data) => {
 
-        // setIsLoading(true)
+        setIsLoading(true)
         const { identification, name, lastname1, lastname2, email, birth, role, phone, provincia_id, distrito_id, canton_id, description } = data;
-
-
 
         const userForm = {
             identification,
@@ -78,8 +74,6 @@ const CreateUser = () => {
             address: { provincia_id, canton_id, distrito_id, description },
             active: true,
         }
-
-        console.log(useForm)
 
         try {
             const res = await axios.post("/api/auth/users/create", userForm)
