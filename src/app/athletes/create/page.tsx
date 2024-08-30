@@ -112,7 +112,7 @@ const CreateAthlete = () => {
             lastname1,
             lastname2,
             email,
-            password: "atleta",
+            password: `atleta@${identification}`,
             role: "atleta",
             birth,
             genre,
