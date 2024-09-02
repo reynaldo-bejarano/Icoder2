@@ -1,24 +1,26 @@
-import { Schema, model, models } from 'mongoose'
+import { Schema, model, models } from "mongoose";
 
-const modalitiesSportSchema = new Schema({
+const modalitiesSportSchema = new Schema(
+  {
     id: {
-        type: Number,
-        required: true,
-        unique: true
+      type: Number,
+      required: true,
+      unique: true,
     },
     name: {
-        type: String,
-        required: true,
-    }, 
+      type: String,
+      required: true,
+    },
     sports_id: {
-        type: Array,
-        require: true
-    }
-
-}, {
+      type: Array,
+      require: true,
+    },
+  },
+  {
     timestamps: true,
-}
-)
+  }
+);
 
-const ModalitiesSport = models.ModalitiesSport || model('ModalitiesSport', modalitiesSportSchema);
+const ModalitiesSport =
+  models.ModalitiesSport || model("ModalitiesSport", modalitiesSportSchema);
 export default ModalitiesSport;
