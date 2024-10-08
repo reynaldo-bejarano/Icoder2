@@ -134,7 +134,7 @@ const UsersPage = () => {
                       </button>
                       <button
                         onClick={() =>
-                          navigation.push(`users/view/${item.identification}`)
+                          navigation.push(`users/edit/${item.identification}`)
                         }
                         className=" text-slate-800  text-2xl md:col-span-1 text-center "
                       >

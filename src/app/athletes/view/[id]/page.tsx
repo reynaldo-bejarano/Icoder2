@@ -170,7 +170,12 @@ const ViewAthlete = () => {
           {/* header */}
 
           <div className="col-span-4  flex justify-end gap-2 px-4 bg-slate-200 py-2">
-            <button className=" flex items-center gap-1 bg-slate-400 py-1 px-2 text-slate-100  md:col-span-1 text-center rounded-md text-xs ">
+            <button
+              onClick={() =>
+                navigation.push(`/athletes/edit/${athlete?.identification}`)
+              }
+              className=" flex items-center gap-1 bg-slate-400 py-1 px-2 text-slate-100  md:col-span-1 text-center rounded-md text-xs "
+            >
               <RiEditBoxFill className="text-slate-100 text-md" />
               <span className="text-md">Editar datos</span>
             </button>
