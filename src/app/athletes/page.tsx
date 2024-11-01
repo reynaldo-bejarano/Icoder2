@@ -225,6 +225,8 @@ const AthletesPage = () => {
       </div>
 
       {/* paginacion */}
+      {/* paginacion */}
+      {/* paginacion */}
     </div>
   );
 };
